@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <menuitem id="menu_order_in_root" name="Order In" sequence="0" />
-    <menuitem id="menu_order_customer" name="Customer Details" sequence="0" parent="menu_order_in_root" />
+
+    <menuitem
+            id="menu_order_in_root"
+            name="Order In"
+            sequence="0" />
+    <menuitem
+            id="menu_customer_master"
+            name="Customer Details"
+            sequence="0"
+            parent="menu_order_in_root" />
 
 </odoo>

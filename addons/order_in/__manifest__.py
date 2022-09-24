@@ -12,7 +12,9 @@
     "description": """Order In management system""",
     "depends": [],
     "data": [
+        "security/ir.model.access.csv",
         "views/menu.xml",
+        "views/customer_view.xml",
     ],
     "demo": [],
     "installable": True,

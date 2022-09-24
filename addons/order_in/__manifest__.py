@@ -11,7 +11,9 @@
     "summary": "Order In management system",
     "description": """Order In management system""",
     "depends": [],
-    "data": [],
+    "data": [
+        "views/menu.xml",
+    ],
     "demo": [],
     "installable": True,
     "application": True,

@@ -9,3 +9,4 @@ class OrderCustomer(models.Model):
     address = fields.Char(string="Address", required=True)
     phone = fields.Char(string="Phone", required=True)
     email = fields.Char(string="Email", required=True)
+    active = fields.Boolean(string="Active", default=True)

@@ -11,3 +11,11 @@ class OrderCustomer(models.Model):
     phone = fields.Char(string="Phone", required=True, tracking=True)
     email = fields.Char(string="Email", required=True, tracking=True)
     active = fields.Boolean(string="Active", default=True)
+    types = fields.Selection(
+        [
+            ("clinic", "Clinic"),
+            ("hospital", "Hospital"),
+            ("other", "Other"),
+        ],
+        string="customer_type",
+    )

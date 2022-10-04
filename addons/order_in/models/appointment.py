@@ -10,3 +10,7 @@ class OrderAppointment(models.Model):
     customer_id = fields.Many2one("order.customer", string="Customer", required=True)
     appointment_time = fields.Datetime(string="Appointment Time", required=True, default=fields.Datetime.now)
     booking_date = fields.Date(string="Booking Date", required=True, default=fields.Date.context_today)
+    types = fields.Selection(
+        string="customer_type",
+        related="customer_id.types",
+    )

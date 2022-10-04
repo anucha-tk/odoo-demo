@@ -22,6 +22,7 @@
                         <group>
                             <field name="customer_id" />
                             <field name="appointment_time" />
+                            <field name="types" />
                         </group>
                         <group>
                             <field name="booking_date" />

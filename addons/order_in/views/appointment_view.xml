@@ -22,9 +22,10 @@
                         <group>
                             <field name="customer_id" />
                             <field name="appointment_time" />
+                        </group>
+                        <group>
                             <field name="booking_date" />
                         </group>
-                        <group></group>
                     </group>
                 </sheet>
                 <div class="oe_chatter">

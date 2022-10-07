@@ -10,7 +10,7 @@
                 <field name="email" />
                 <field name="phone" />
                 <field name="types" />
-                <field name="active" invisible="1"/>
+                <field name="active" invisible="1" />
             </tree>
         </field>
     </record>
@@ -26,6 +26,8 @@
                             <field name="name" />
                             <field name="address" />
                             <field name="types" />
+                            <field name="date_of_birth" />
+                            <field name="age" />
                         </group>
                         <group>
                             <field name="phone" />
@@ -35,9 +37,9 @@
                     </group>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers"/>
-                    <field name="activity_ids" widget="mail_activity"/>
-                    <field name="message_ids" widget="mail_thread"/>
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="activity_ids" widget="mail_activity" />
+                    <field name="message_ids" widget="mail_thread" />
                 </div>
             </form>
         </field>
@@ -54,13 +56,13 @@
                 <field name="phone" />
                 <filter name="filter_a" string="a" domain="[('address', '=', 'a')]" />
                 <filter name="filter_b" string="b" domain="[('address', '=', 'b')]" />
-                <separator/>
+                <separator />
                 <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]" />
                 <group expand="0" name="group_by_address" string="string">
                     <filter name="address" string="address" context="{'group_by': 'address'}" />
                 </group>
                 <searchpanel>
-                    <field name="types" enable_counters="1" icon="fa-users" select="multi"/>
+                    <field name="types" enable_counters="1" icon="fa-users" select="multi" />
                 </searchpanel>
             </search>
         </field>

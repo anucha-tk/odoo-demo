@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="order_customer_view_tree" model="ir.ui.view">
+    <record id="order_appointment_view_tree" model="ir.ui.view">
         <field name="name">order.appointment.view.tree</field>
         <field name="model">order.appointment</field>
         <field name="arch" type="xml">
@@ -8,6 +8,7 @@
                 <field name="customer_id" />
                 <field name="appointment_time" />
                 <field name="booking_date" />
+                <field name="ref" />
             </tree>
         </field>
     </record>
@@ -26,6 +27,7 @@
                         </group>
                         <group>
                             <field name="booking_date" />
+                            <field name="ref" />
                         </group>
                     </group>
                 </sheet>

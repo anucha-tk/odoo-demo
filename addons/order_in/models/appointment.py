@@ -13,3 +13,8 @@ class OrderAppointment(models.Model):
         string="customer_type",
         related="customer_id.types",
     )
+    ref = fields.Char(string="Reference", tracking=True)
+
+    @api.onchange("customer_id")
+    def _onchange_customer_id(self):
+        self.ref = self.customer_id.ref

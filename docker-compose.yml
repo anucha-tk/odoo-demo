@@ -24,7 +24,7 @@ services:
     tty: true
     # command: --
     #! todo in production delete below this line
-    command: odoo -u order_in -d std-demo --dev=reload
+    command: odoo -u order_in -d std-demo --dev=xml,reload
     environment:
       - HOST=db
       - USER=odoo

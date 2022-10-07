@@ -1,6 +1,7 @@
 from datetime import date
 from odoo import models, fields, api
 
+
 class OrderCustomer(models.Model):
     _name = "order.customer"
     _inherit = ["mail.thread", "mail.activity.mixin"]
@@ -12,6 +13,7 @@ class OrderCustomer(models.Model):
     address = fields.Char(string="Address", required=True, tracking=True)
     phone = fields.Char(string="Phone", required=True, tracking=True)
     email = fields.Char(string="Email", required=True, tracking=True)
+    ref = fields.Char(string="Reference", tracking=True)
     active = fields.Boolean(string="Active", default=True)
     types = fields.Selection(
         [

@@ -10,7 +10,7 @@
     "category": "Order",
     "summary": "Order In management system",
     "description": """Order In management system""",
-    "depends": ["mail"],
+    "depends": ["mail", "product"],
     "data": [
         "security/ir.model.access.csv",
         "views/menu.xml",

@@ -18,8 +18,11 @@
         <field name="model">order.appointment</field>
         <field name="arch" type="xml">
             <form string="">
+                <header>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done" />
+                </header>
                 <sheet>
-                    <group name="details" string="string">
+                    <group name="details" string="Appointment">
                         <group>
                             <field name="customer_id" />
                             <field name="appointment_time" />
@@ -30,6 +33,27 @@
                             <field name="ref" />
                         </group>
                     </group>
+                    <notebook>
+                        <page name="prescription" string="Prescription">
+                            <field name="prescription" />
+                        </page>
+                        <page name="pharmacy" string="Pharmacy">
+                            <field name="pharmacy_line_ids">
+                                <tree>
+                                    <field name="product_id" />
+                                    <field name="quantity" />
+                                    <field name="price_unit" />
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="product_id" />
+                                        <field name="quantity" />
+                                        <field name="price_unit" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <div class="oe_chatter">
                     <field name="message_follower_ids" widget="mail_followers" />

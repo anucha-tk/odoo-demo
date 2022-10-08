@@ -15,7 +15,30 @@ class OrderAppointment(models.Model):
         related="customer_id.types",
     )
     ref = fields.Char(string="Reference", tracking=True)
+    prescription = fields.Html(string="Prescription")
+    state = fields.Selection(
+        [
+            ("draft", "Draft"),
+            ("in_consultation", "In Consultation"),
+            ("done", "Done"),
+            ("cancel", "Cancel"),
+        ],
+        default="draft",
+        tracking=True,
+        string="Status",
+    )
+    pharmacy_line_ids = fields.One2many("appointment.pharmacy.lines", "appointment_id", string="Pharmacy Lines")
 
     @api.onchange("customer_id")
     def _onchange_customer_id(self):
         self.ref = self.customer_id.ref
+
+
+class AppointmentPharmacyLines(models.Model):
+    _name = "appointment.pharmacy.lines"
+    _description = "Appointment Pharmacy Lines"
+
+    product_id = fields.Many2one("product.product", string="product", required=True)
+    quantity = fields.Float(string="Quantity", required=True, default=1)
+    price_unit = fields.Float(related="product_id.list_price", required=True)
+    appointment_id = fields.Many2one("order.appointment", string="Appointment")

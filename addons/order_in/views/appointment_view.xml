@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <record id="order_appointment_view_activity" model="ir.ui.view">
+        <field name="name">order.appointment.view.activity</field>
+        <field name="model">order.appointment</field>
+        <field name="arch" type="xml">
+            <activity string="Appointments">
+                <field name="customer_id" />
+                <field name="ref" />
+                <templates>
+                    <img t-att-src="activity_image('')" />
+                    <div t-name="activity-box">
+                        <field name="ref" display="full" />
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
     <record id="order_appointment_view_tree" model="ir.ui.view">
         <field name="name">order.appointment.view.tree</field>
         <field name="model">order.appointment</field>
@@ -8,6 +24,7 @@
                 <field name="customer_id" />
                 <field name="appointment_time" />
                 <field name="booking_date" />
+                <field name="activity_ids" widget="list_activity" />
                 <field name="ref" />
             </tree>
         </field>
@@ -67,7 +84,7 @@
         <field name="name">Appointment</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">order.appointment</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,activity</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create your first appointment </p>

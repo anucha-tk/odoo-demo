@@ -23,6 +23,7 @@ class OrderCustomer(models.Model):
         ],
         string="customer_type",
     )
+    tag_ids = fields.Many2many("tag", string="tags")
 
     @api.depends("date_of_birth")
     def _compute_age(self):

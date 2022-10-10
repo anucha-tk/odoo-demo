@@ -16,6 +16,7 @@
         "views/menu.xml",
         "views/customer_view.xml",
         "views/appointment_view.xml",
+        "views/tag_view.xml",
     ],
     "demo": [],
     "installable": True,

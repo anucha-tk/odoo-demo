@@ -5,5 +5,5 @@ class Tag(models.Model):
     _name = "tag"
     _description = "Tag"
 
-    name = fields.Char("name")
-    color = fields.Char("color", default="#000000")
+    name = fields.Char("Name")
+    color = fields.Integer("Color")

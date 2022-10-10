@@ -6,11 +6,10 @@
         <field name="arch" type="xml">
             <activity string="Appointments">
                 <field name="customer_id" />
-                <field name="ref" />
                 <templates>
-                    <img t-att-src="activity_image('')" />
                     <div t-name="activity-box">
-                        <field name="ref" display="full" />
+                        <img t-att-src="activity_image('order.customer','image',record.customer_id.raw_value)" t-att-title="record.customer_id.value" t-att-alt="record.customer_id.value" />
+                        <field name="customer_id" display="full" />
                     </div>
                 </templates>
             </activity>

@@ -33,6 +33,15 @@ class OrderAppointment(models.Model):
     def _onchange_customer_id(self):
         self.ref = self.customer_id.ref
 
+    def action_in_consultation(self):
+        self.state = "in_consultation"
+
+    def action_done(self):
+        self.state = "done"
+
+    def action_cancel(self):
+        self.state = "cancel"
+
 
 class AppointmentPharmacyLines(models.Model):
     _name = "appointment.pharmacy.lines"

@@ -13,6 +13,7 @@
     "depends": ["mail", "product"],
     "data": [
         "security/ir.model.access.csv",
+        "wizard/cancel_appointment_view.xml",
         "views/menu.xml",
         "views/customer_view.xml",
         "views/appointment_view.xml",

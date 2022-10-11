@@ -37,7 +37,7 @@
                 <header>
                     <button string="In Consultation" name="action_in_consultation" type="object" class="oe_highlight" data-hotkey="x" states="draft" />
                     <button string="Mark as Done" name="action_done" type="object" class="oe_highlight" data-hotkey="v" states="in_consultation" />
-                    <button string="Cancel" name="action_cancel" type="object" class="oe_highlight" data-hotkey="z" states="draft,in_consultation" />
+                    <button string="Cancel" name="action_cancel" type="object" data-hotkey="z" states="draft,in_consultation" />
                     <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done" />
                 </header>
                 <sheet>

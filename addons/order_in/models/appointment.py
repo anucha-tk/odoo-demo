@@ -40,7 +40,8 @@ class OrderAppointment(models.Model):
         self.state = "done"
 
     def action_cancel(self):
-        self.state = "cancel"
+        action = self.env.ref("order_in.action_cancel_appointment").read()[0]
+        return action
 
 
 class AppointmentPharmacyLines(models.Model):

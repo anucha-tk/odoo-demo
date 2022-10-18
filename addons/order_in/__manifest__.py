@@ -14,6 +14,7 @@
     "data": [
         "security/ir.model.access.csv",
         "data/customer_tag_data.xml",
+        "data/tag.csv",
         "wizard/cancel_appointment_view.xml",
         "views/menu.xml",
         "views/customer_view.xml",

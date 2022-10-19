@@ -26,6 +26,11 @@ class OrderCustomer(models.Model):
     tag_ids = fields.Many2many("tag", string="tags")
     image = fields.Image("Image")
 
+    @api.model
+    def create(self, vals):
+        vals["ref"] = self.env["ir.sequence"].next_by_code("customer")
+        return super(OrderCustomer, self).create(vals)
+
     @api.depends("date_of_birth")
     def _compute_age(self):
         for rec in self:

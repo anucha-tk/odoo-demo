@@ -1,4 +1,5 @@
-from odoo import models, fields
+import datetime
+from odoo import models, fields, api
 
 
 class CancelAppointment(models.TransientModel):
@@ -7,6 +8,13 @@ class CancelAppointment(models.TransientModel):
 
     appointment_id = fields.Many2one("order.appointment", string="Appointment")
     reason = fields.Text(string="Reason")
+    date_cancel = fields.Date(string="Cancellation Date")
 
     def action_cancel(self):
         return
+
+    @api.model
+    def default_get(self, fields):
+        res = super(CancelAppointment, self).default_get(fields)
+        res["date_cancel"] = datetime.date.today()
+        return res

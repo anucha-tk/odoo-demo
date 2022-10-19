@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <record id="order_appointment_view_activity" model="ir.ui.view">
         <field name="name">order.appointment.view.activity</field>
         <field name="model">order.appointment</field>
         <field name="arch" type="xml">
             <activity string="Appointments">
-                <field name="customer_id" />
+                <field name="customer_id"/>
                 <templates>
                     <div t-name="activity-box">
-                        <img t-att-src="activity_image('order.customer','image',record.customer_id.raw_value)" t-att-title="record.customer_id.value" t-att-alt="record.customer_id.value" />
-                        <field name="customer_id" display="full" />
+                        <img t-att-src="activity_image('order.customer','image',record.customer_id.raw_value)"
+                             t-att-title="record.customer_id.value" t-att-alt="record.customer_id.value"/>
+                        <field name="customer_id" display="full"/>
                     </div>
                 </templates>
             </activity>
@@ -20,11 +22,11 @@
         <field name="model">order.appointment</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="customer_id" />
-                <field name="appointment_time" />
-                <field name="booking_date" />
-                <field name="activity_ids" widget="list_activity" />
-                <field name="ref" />
+                <field name="customer_id"/>
+                <field name="appointment_time"/>
+                <field name="booking_date"/>
+                <field name="activity_ids" widget="list_activity"/>
+                <field name="ref"/>
             </tree>
         </field>
     </record>
@@ -35,39 +37,43 @@
         <field name="arch" type="xml">
             <form string="">
                 <header>
-                    <button string="In Consultation" name="action_in_consultation" type="object" class="oe_highlight" data-hotkey="x" states="draft" />
-                    <button string="Mark as Done" name="action_done" type="object" class="oe_highlight" data-hotkey="v" states="in_consultation" />
-                    <button string="Cancel" name="action_cancel" type="object" data-hotkey="z" states="draft,in_consultation" />
-                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}" statusbar_visible="draft,in_consultation,done" />
+                    <button string="In Consultation" name="action_in_consultation" type="object" class="oe_highlight"
+                            data-hotkey="x" states="draft"/>
+                    <button string="Mark as Done" name="action_done" type="object" class="oe_highlight" data-hotkey="v"
+                            states="in_consultation"/>
+                    <button string="Cancel" name="action_cancel" type="object" data-hotkey="z"
+                            states="draft,in_consultation"/>
+                    <field name="state" widget="statusbar" nolabel="1" options="{'clickable': '1'}"
+                           statusbar_visible="draft,in_consultation,done"/>
                 </header>
                 <sheet>
                     <group name="details" string="Appointment">
                         <group>
-                            <field name="customer_id" />
-                            <field name="appointment_time" />
-                            <field name="types" />
+                            <field name="customer_id"/>
+                            <field name="appointment_time"/>
+                            <field name="types"/>
                         </group>
                         <group>
-                            <field name="booking_date" />
-                            <field name="ref" />
+                            <field name="booking_date"/>
+                            <field name="ref"/>
                         </group>
                     </group>
                     <notebook>
                         <page name="prescription" string="Prescription">
-                            <field name="prescription" />
+                            <field name="prescription"/>
                         </page>
                         <page name="pharmacy" string="Pharmacy">
                             <field name="pharmacy_line_ids">
                                 <tree>
-                                    <field name="product_id" />
-                                    <field name="quantity" />
-                                    <field name="price_unit" />
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
                                 </tree>
                                 <form>
                                     <group>
-                                        <field name="product_id" />
-                                        <field name="quantity" />
-                                        <field name="price_unit" />
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="price_unit"/>
                                     </group>
                                 </form>
                             </field>
@@ -75,9 +81,9 @@
                     </notebook>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="message_follower_ids" widget="mail_followers" />
-                    <field name="activity_ids" widget="mail_activity" />
-                    <field name="message_ids" widget="mail_thread" />
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
                 </div>
             </form>
         </field>
@@ -89,9 +95,10 @@
         <field name="view_mode">tree,form,activity</field>
         <field name="context">{}</field>
         <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">Create your first appointment </p>
+            <p class="o_view_nocontent_smiling_face">Create your first appointment</p>
         </field>
     </record>
 
-    <menuitem id="menu_appointment" name="Appointment" sequence="0" action="action_order_appointment" parent="menu_appointment_master" />
+    <menuitem id="menu_appointment" name="Appointment" sequence="0" action="action_order_appointment"
+              parent="menu_appointment_master"/>
 </odoo>

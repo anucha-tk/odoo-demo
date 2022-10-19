@@ -26,6 +26,7 @@
                 <field name="booking_date" />
                 <field name="activity_ids" widget="list_activity" />
                 <field name="ref" />
+                <field name="state" widget="badge" decoration-muted="state == 'draft'" decoration-warning="state == 'in_consultation'" decoration-success="state == 'done'" />
             </tree>
         </field>
     </record>

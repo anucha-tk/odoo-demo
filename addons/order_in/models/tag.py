@@ -7,3 +7,8 @@ class Tag(models.Model):
 
     name = fields.Char("Name")
     color = fields.Integer("Color")
+    active = fields.Boolean("Active", default=True)
+
+    _sql_constraints = [
+        ("unique_tag_name", "unique (name)", "Name must be unique."),
+    ]

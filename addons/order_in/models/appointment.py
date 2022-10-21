@@ -1,4 +1,6 @@
+from re import A
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class OrderAppointment(models.Model):
@@ -43,6 +45,11 @@ class OrderAppointment(models.Model):
         action = self.env.ref("order_in.action_cancel_appointment").read()[0]
         self.state = "cancel"
         return action
+
+    def unlink(self):
+        if self.state != "draft":
+            raise ValidationError("You can delete appointment only draft status !")
+        return super(OrderAppointment, self).unlink()
 
 
 class AppointmentPharmacyLines(models.Model):

@@ -47,8 +47,9 @@ class OrderAppointment(models.Model):
         return action
 
     def unlink(self):
-        if self.state != "draft":
-            raise ValidationError("You can delete appointment only draft status !")
+        for rec in self:
+            if rec.state != "draft":
+                raise ValidationError("You can delete appointment only draft status !")
         return super(OrderAppointment, self).unlink()
 
 

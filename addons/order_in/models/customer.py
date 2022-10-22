@@ -26,6 +26,13 @@ class OrderCustomer(models.Model):
     )
     tag_ids = fields.Many2many("tag", string="tags")
     image = fields.Image("Image")
+    appointment_count = fields.Integer(compute="_compute_appointment_count", string="Appointment Count", store=True)
+    appointment_ids = fields.One2many("order.appointment", "customer_id", string="Appointments")
+
+    @api.depends("appointment_ids")
+    def _compute_appointment_count(self):
+        for rec in self:
+            rec.appointment_count = self.env["order.appointment"].search_count([("customer_id", "=", rec.id)])
 
     @api.constrains("date_of_birth")
     def _constrains_date_of_birth(self):

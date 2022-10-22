@@ -31,6 +31,7 @@
                             <field name="types" />
                             <field name="date_of_birth" />
                             <field name="age" />
+                            <field name="appointment_count" />
                         </group>
                         <group>
                             <field name="ref" readonly="1" />

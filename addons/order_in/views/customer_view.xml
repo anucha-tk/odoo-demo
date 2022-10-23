@@ -24,7 +24,7 @@
             <form string="">
                 <sheet>
                     <field name="image" widget="image" class="oe_avatar" />
-                    <group name="details" string="string">
+                    <group name="details" string="Details">
                         <group>
                             <field name="name" />
                             <field name="address" />
@@ -39,6 +39,11 @@
                             <field name="email" />
                             <field name="active" invisible="1" />
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                        </group>
+                    </group>
+                    <group name="infomation" string="Infomation">
+                        <group>
+                            <field name="parent" attrs="{'invisible': [('age', '>', 18)]}" />
                         </group>
                     </group>
                 </sheet>

@@ -28,6 +28,7 @@ class OrderCustomer(models.Model):
     image = fields.Image("Image")
     appointment_count = fields.Integer(compute="_compute_appointment_count", string="Appointment Count", store=True)
     appointment_ids = fields.One2many("order.appointment", "customer_id", string="Appointments")
+    parent = fields.Char("Parent")
 
     @api.depends("appointment_ids")
     def _compute_appointment_count(self):

@@ -24,9 +24,15 @@
             <form string="">
                 <sheet>
                     <field name="image" widget="image" class="oe_avatar" />
+                    <div class="oe_title">
+                        <h2>
+                            <field name="ref" readonly="1" />
+                        </h2>
+                        <label for="name" class="oe_edit_only" />
+                        <field name="name" />
+                    </div>
                     <group name="details" string="Details">
                         <group>
-                            <field name="name" />
                             <field name="address" />
                             <field name="types" />
                             <field name="date_of_birth" />
@@ -34,7 +40,6 @@
                             <field name="appointment_count" />
                         </group>
                         <group>
-                            <field name="ref" readonly="1" />
                             <field name="phone" />
                             <field name="email" />
                             <field name="active" invisible="1" />

@@ -30,6 +30,8 @@
                 <field name="activity_ids" widget="list_activity" />
                 <field name="ref" />
                 <field name="state" widget="badge" decoration-muted="state == 'draft'" decoration-warning="state == 'in_consultation'" decoration-success="state == 'done'" />
+                <button name="action_done" type="object" class="fa fa-check btn-success" attrs="{'invisible': [('state', '!=', 'in_consultation')]}" />
+                <button name="action_cancel" type="object" class="fa fa-times btn-danger" attrs="{'invisible': [('state', 'not in', ('in_consultation','draft'))]}" />
             </tree>
         </field>
     </record>

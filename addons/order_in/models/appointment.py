@@ -37,7 +37,6 @@ class OrderAppointment(models.Model):
 
     def action_cancel(self):
         action = self.env.ref("order_in.action_cancel_appointment").read()[0]
-        self.state = "cancel"
         return action
 
     def unlink(self):

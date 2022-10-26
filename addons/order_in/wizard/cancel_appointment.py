@@ -1,5 +1,5 @@
 import datetime
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
@@ -12,8 +12,9 @@ class CancelAppointment(models.TransientModel):
     date_cancel = fields.Date(string="Cancellation Date")
 
     def action_cancel(self):
-        if self.date_cancel == fields.Date.today():
-            raise ValidationError("cancellation isn't allow in the same day of booking")
+        if self.appointment_id.booking_date == fields.Date.today():
+            raise ValidationError(_("cancellation isn't allow in the same day of booking"))
+        self.appointment_id.state = "cancel"
         return
 
     @api.model

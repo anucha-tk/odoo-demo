@@ -27,10 +27,13 @@ class OrderAppointment(models.Model):
         self.ref = self.customer_id.ref
 
     def action_in_consultation(self):
-        self.state = "in_consultation"
+        for rec in self:
+            if rec.state == "draft":
+                rec.state = "in_consultation"
 
     def action_done(self):
-        self.state = "done"
+        for rec in self:
+            rec.state = "done"
 
     def action_cancel(self):
         action = self.env.ref("order_in.action_cancel_appointment").read()[0]

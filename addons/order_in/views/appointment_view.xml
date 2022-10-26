@@ -21,6 +21,9 @@
         <field name="model">order.appointment</field>
         <field name="arch" type="xml">
             <tree>
+                <header>
+                    <button string="In Consultation" name="action_in_consultation" type="object" />
+                </header>
                 <field name="customer_id" />
                 <field name="appointment_time" />
                 <field name="booking_date" />
